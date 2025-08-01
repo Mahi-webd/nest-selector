@@ -38,6 +38,23 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
+    /* Room Selection Gradient Colors */
+    --gradient-peach-start: 28 100% 88%;
+    --gradient-peach-mid: 30 95% 90%;
+    --gradient-cream: 50 60% 96%;
+    --gradient-mint-mid: 145 25% 94%;
+    --gradient-mint-end: 180 25% 94%;
+    
+    /* Room Selection Theme Colors */
+    --room-primary: 25 95% 75%;
+    --room-primary-foreground: 25 25% 25%;
+    --room-secondary: 145 20% 88%;
+    --room-secondary-foreground: 145 25% 25%;
+    --room-accent: 50 40% 92%;
+    --room-accent-foreground: 50 20% 30%;
+    --room-success: 145 60% 55%;
+    --room-success-foreground: 145 20% 95%;
+
     --sidebar-background: 0 0% 98%;
 
     --sidebar-foreground: 240 5.3% 26.1%;

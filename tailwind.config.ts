@@ -61,7 +61,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				'room-primary': 'hsl(var(--room-primary))',
+				'room-primary-foreground': 'hsl(var(--room-primary-foreground))',
+				'room-secondary': 'hsl(var(--room-secondary))',
+				'room-secondary-foreground': 'hsl(var(--room-secondary-foreground))',
+				'room-accent': 'hsl(var(--room-accent))',
+				'room-accent-foreground': 'hsl(var(--room-accent-foreground))',
+				'room-success': 'hsl(var(--room-success))',
+				'room-success-foreground': 'hsl(var(--room-success-foreground))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
