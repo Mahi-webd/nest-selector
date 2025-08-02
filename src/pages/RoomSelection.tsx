@@ -8,6 +8,14 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { CheckCircle, Home, Wind, Building, Snowflake, Sofa, Droplets } from "lucide-react";
 
+// Import room images
+import room1Image from "@/assets/room-1-furnished-single.jpg";
+import room2Image from "@/assets/room-2-twin-sharing.jpg";
+import room3Image from "@/assets/room-3-minimal.jpg";
+import room4Image from "@/assets/room-4-twin-furnished.jpg";
+import room5Image from "@/assets/room-5-cozy-single.jpg";
+import room6Image from "@/assets/room-6-shared-modern.jpg";
+
 interface Room {
   id: string;
   type: "Single Bed" | "Twin-sharing";
@@ -134,6 +142,20 @@ const RoomSelection = () => {
     }
   };
 
+  const getRoomImage = (roomId: string) => {
+    const imageMap: { [key: string]: string } = {
+      "1": room1Image,
+      "2": room2Image,
+      "3": room3Image,
+      "4": room4Image,
+      "5": room5Image,
+      "6": room6Image,
+    };
+    return imageMap[roomId];
+  };
+
+  const selectedRoomData = selectedRoom ? sampleRooms.find(room => room.id === selectedRoom) : null;
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-[hsl(var(--gradient-peach-start))] via-[hsl(var(--gradient-cream))] to-[hsl(var(--gradient-mint-end))]">
       <div className="container mx-auto px-4 py-8">
@@ -247,6 +269,87 @@ const RoomSelection = () => {
             </div>
           </CardContent>
         </Card>
+
+        {/* Room Preview */}
+        {selectedRoomData && (
+          <Card className="mb-8 bg-white/90 backdrop-blur-sm border-room-success overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+              {/* Room Image */}
+              <div className="relative h-80 lg:h-96">
+                <img 
+                  src={getRoomImage(selectedRoomData.id)} 
+                  alt={`${selectedRoomData.type} room preview`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-4 left-4">
+                  <Badge className="bg-room-success text-room-success-foreground">
+                    Selected Room
+                  </Badge>
+                </div>
+              </div>
+              
+              {/* Room Details */}
+              <div className="p-6">
+                <CardHeader className="px-0 pt-0">
+                  <CardTitle className="text-2xl text-room-primary-foreground flex items-center gap-2">
+                    <Home className="w-6 h-6" />
+                    {selectedRoomData.type}
+                  </CardTitle>
+                  <div className="text-4xl font-bold text-room-success">
+                    ₹{selectedRoomData.cost.toLocaleString()}
+                    <span className="text-lg font-normal text-room-accent-foreground">/month</span>
+                  </div>
+                </CardHeader>
+                
+                <CardContent className="px-0 space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="flex items-center gap-3 p-3 rounded-lg bg-room-accent/20">
+                      {getIconForFeature("windowSide")}
+                      <div>
+                        <div className="font-medium text-room-primary-foreground">Window View</div>
+                        <div className="text-sm text-room-accent-foreground">
+                          {selectedRoomData.windowSide ? "Available" : "Not Available"}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-3 p-3 rounded-lg bg-room-accent/20">
+                      {getIconForFeature("floor")}
+                      <div>
+                        <div className="font-medium text-room-primary-foreground">Floor Level</div>
+                        <div className="text-sm text-room-accent-foreground">{selectedRoomData.floor} Floor</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-3 p-3 rounded-lg bg-room-accent/20">
+                      {getIconForFeature("airConditioning")}
+                      <div>
+                        <div className="font-medium text-room-primary-foreground">Climate Control</div>
+                        <div className="text-sm text-room-accent-foreground">{selectedRoomData.airConditioning}</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-3 p-3 rounded-lg bg-room-accent/20">
+                      {getIconForFeature("furnishing")}
+                      <div>
+                        <div className="font-medium text-room-primary-foreground">Furniture</div>
+                        <div className="text-sm text-room-accent-foreground">{selectedRoomData.furnishing}</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 p-3 rounded-lg bg-room-accent/20">
+                    {getIconForFeature("washroom")}
+                    <div>
+                      <div className="font-medium text-room-primary-foreground">Bathroom Access</div>
+                      <div className="text-sm text-room-accent-foreground">{selectedRoomData.washroom} Washroom</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </div>
+            </div>
+          </Card>
+        )}
 
         {/* Room Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
