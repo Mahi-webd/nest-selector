@@ -234,42 +234,6 @@ const Confirmation = () => {
             </CardContent>
           </Card>
 
-          {/* Next Steps */}
-          <Card className="bg-white/90 backdrop-blur-sm border-room-accent lg:col-span-2">
-            <CardHeader>
-              <CardTitle className="text-room-primary-foreground flex items-center gap-2">
-                <Sparkles className="w-5 h-5" />
-                What's Next?
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="text-center p-4 rounded-lg bg-room-accent/30">
-                  <div className="w-12 h-12 bg-room-success/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-room-success font-bold">1</span>
-                  </div>
-                  <h4 className="font-semibold text-room-primary-foreground mb-2">Payment</h4>
-                  <p className="text-sm text-room-accent-foreground">Complete your booking with a secure payment</p>
-                </div>
-                
-                <div className="text-center p-4 rounded-lg bg-room-accent/30">
-                  <div className="w-12 h-12 bg-room-success/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-room-success font-bold">2</span>
-                  </div>
-                  <h4 className="font-semibold text-room-primary-foreground mb-2">Documentation</h4>
-                  <p className="text-sm text-room-accent-foreground">Submit required documents for verification</p>
-                </div>
-                
-                <div className="text-center p-4 rounded-lg bg-room-accent/30">
-                  <div className="w-12 h-12 bg-room-success/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-room-success font-bold">3</span>
-                  </div>
-                  <h4 className="font-semibold text-room-primary-foreground mb-2">Move In</h4>
-                  <p className="text-sm text-room-accent-foreground">Get your keys and settle into your new home!</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
 
         {/* Action Buttons */}
